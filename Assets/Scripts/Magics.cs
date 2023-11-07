@@ -1,73 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Magics : MonoBehaviour
+using System;
+[Serializable]
+public class Magics
 {
-    private string fire = "fire", ice = "ice", electric = "electric", water = "water", earth = "earth", metal = "metal", element01 = "Basic element01", element02 = "Basic element02";
-
-    public void StoreElement01(int i)
-    {
-        switch(i)
-        {
-            case 1:
-                element01 = fire;
-                break;
-            
-            case 2:
-                element01 = ice;
-                break;
-            case 3:
-                element01 = electric;
-                break;
-            case 4:
-                element01 = water;
-                break;
-            case 5:
-                element01 = earth;
-                break;
-            case 6:
-                element01 = metal;
-                break;
-            default:
-                break;
-        }
+    //How to make class objects?
+    /// <summary>
+    /// Type
+    /// Damage
+    /// Manacost
+    /// Cooldown
+    /// spread
+    /// range
+    /// </summary>
+    public delegate float[] Casting(float damage, float manacost, float cooldown, float spread, float range);
+    public enum elementName {Fire, Ice, Electric, Water, Earth, Metal, Light, Dark}
+    //public float elementDamage = {10f, 0.2f, 0.2f, 5f, 10f, 10f, 0.1f, 0.1f};
+    //public elementName GetMagicType(elementName name) => elements[(int)name];
+    public static void Fire(float damage, float manacost, float cooldown, float spread, float range){
+        Debug.Log("Fire");
     }
-    public void StoreElement02(int i)
-    {
-        switch(i)
-        {
-        case 1:
-            element02 = fire;
-            break;
-        case 2:
-            element02 = ice;
-            break;
-        case 3:
-            element02 = electric;
-            break;
-        case 4:
-            element02 = water;
-            break;
-        case 5:
-            element02 = earth;
-            break;
-        case 6:
-            element02 = metal;
-            break;
-        }
-    }
-    public void Fire()
-    {
-        Debug.Log($"Fire {element01} in the hole");
-    }
-
-    public void AltFire()
-    {
-        Debug.Log($"Alternativ fire {element02} in the hole");
-    }
-    public void DoubleFire()
-    {
-        Debug.Log($"Firing {element01} and {element02}");
+    public static void Ice(float damage, float manacost, float cooldown, float spread, float range){
+        Debug.Log("Ice");
     }
 }
